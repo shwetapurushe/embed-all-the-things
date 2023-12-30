@@ -3,8 +3,11 @@ from transformers import pipeline
 # the downloaded cached model is available at ~./cache/huggingface/hub
 # Use the CLI to manage cache using the TUI at https://huggingface.co/docs/huggingface_hub/main/en/guides/cli
 
+# Mode 1 using the pipeline interface
+
 # Text classfication
 text = "I would go to this restaurant even if you woke me from my sleep."
+
 # specify only task, default model selected
 # pipe1 = pipeline("text-classification") 
 
