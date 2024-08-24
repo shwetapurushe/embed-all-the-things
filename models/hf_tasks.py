@@ -2,6 +2,8 @@ from transformers import pipeline
 
 # the downloaded cached model is available at ~./cache/huggingface/hub
 # Use the CLI to manage cache using the TUI at https://huggingface.co/docs/huggingface_hub/main/en/guides/cli
+# Within the terminal in this activated environment
+# https://huggingface.co/docs/huggingface_hub/en/guides/manage-cache
 
 # Mode 1 using the pipeline interface
 

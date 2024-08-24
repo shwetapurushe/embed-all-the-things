@@ -27,11 +27,10 @@ from sklearn import metrics
 #     return wv_res
 
 def load_data(dataset):
-    dataPath = os.path.join(os.getcwd(), dataset)
-    data = pd.read_csv(dataPath)
-    # data = pd.read_csv("/Users/shweta/Documents/embedding-all-the-things/imdb_dataset.csv")
+    # dataPath = os.path.join(os.getcwd(), dataset)
+    # data = pd.read_csv(dataPath)
+    data = pd.read_csv("/Users/shweta/Documents/embedding-all-the-things/imdb_dataset.csv")
     return data.copy()
-
 
 # TODO use of other tokenizers ?
 
@@ -45,7 +44,7 @@ def getProcessedTokens(tF):
                     , remove_stopwords
                     , strip_multiple_whitespaces
                     # , stem_text
-                    , lambda x: strip_short(x, minsize=2)
+                    , lambda x: strip_short(x, minsize=3)
                     ]
     return [preprocess_string(sentence, CUSTOM_FILTERS) for sentence in tF]
 
@@ -69,7 +68,7 @@ def generateEmbeddings(tokens, keyedVectors):
 
 if __name__ == "__main__":
 
-    usePretrained = True
+    usePretrained = False
 
     df = load_data('imdb_dataset.csv')
     textFeature = df['review']
@@ -108,3 +107,6 @@ if __name__ == "__main__":
     predicted = classifier.predict(X_test)
     print("Accuracy:",metrics.accuracy_score(y_test, predicted))
     print("recall:",metrics.recall_score(y_test, predicted))
+
+# doc 2 vec 
+# tag = train.head().reset_index().apply(lambda x: TaggedDocument(x['tokens'], tags=[x.name]), axis=1)
